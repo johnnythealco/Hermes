@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Hermes.Data.Migrations
 {
-    public partial class CreateTables : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +12,8 @@ namespace Hermes.Data.Migrations
                 name: "CallCategories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -26,8 +25,8 @@ namespace Hermes.Data.Migrations
                 name: "CallPriorities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -39,8 +38,8 @@ namespace Hermes.Data.Migrations
                 name: "CallStatus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -52,14 +51,15 @@ namespace Hermes.Data.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
                     Address1 = table.Column<string>(nullable: true),
                     Address2 = table.Column<string>(nullable: true),
                     Address3 = table.Column<string>(nullable: true),
                     Address4 = table.Column<string>(nullable: true),
                     Address5 = table.Column<string>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     FaxNo = table.Column<string>(nullable: true),
+                    IeSM_SUB_CATEGORY_ID = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     PhoneNo = table.Column<string>(nullable: true)
                 },
@@ -72,8 +72,8 @@ namespace Hermes.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     UserEmail = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(nullable: true)
                 },
@@ -86,10 +86,10 @@ namespace Hermes.Data.Migrations
                 name: "Contacts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
                     ContactName = table.Column<string>(nullable: true),
                     CustomerId = table.Column<int>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     FaxNo = table.Column<string>(nullable: true),
                     MobileNo = table.Column<string>(nullable: true),
@@ -110,8 +110,7 @@ namespace Hermes.Data.Migrations
                 name: "Calls",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
                     AssignedToId = table.Column<int>(nullable: true),
                     CallCategoryId = table.Column<int>(nullable: true),
                     CallClosed = table.Column<bool>(nullable: false),

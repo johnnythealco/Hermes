@@ -8,8 +8,8 @@ using Hermes.Data;
 namespace Hermes.Data.Migrations
 {
     [DbContext(typeof(HermesDbContext))]
-    [Migration("20170615160010_UpdateTables2")]
-    partial class UpdateTables2
+    [Migration("20170616092613_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,8 +19,7 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.Call", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<int?>("AssignedToId");
 
@@ -43,8 +42,6 @@ namespace Hermes.Data.Migrations
                     b.Property<DateTime>("DateLogged");
 
                     b.Property<DateTime>("DateModified");
-
-                    b.Property<int>("IeSM_CALL_NO");
 
                     b.Property<int?>("LoggedById");
 
@@ -87,14 +84,11 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.CallCategory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("DateModified");
 
                     b.Property<string>("Description");
-
-                    b.Property<int>("IeSM_CALL_CATEGORY_ID");
 
                     b.HasKey("Id");
 
@@ -103,14 +97,11 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.CallPriority", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("DateModified");
 
                     b.Property<string>("Description");
-
-                    b.Property<int>("IeSM_SUB_CATEGORY_ID");
 
                     b.HasKey("Id");
 
@@ -119,14 +110,11 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.CallStatus", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("DateModified");
 
                     b.Property<string>("Description");
-
-                    b.Property<int>("IeSM_CALL_STATUS_ID");
 
                     b.HasKey("Id");
 
@@ -135,8 +123,7 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.Contact", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<string>("ContactName");
 
@@ -147,8 +134,6 @@ namespace Hermes.Data.Migrations
                     b.Property<string>("Email");
 
                     b.Property<string>("FaxNo");
-
-                    b.Property<int>("IeSM_CONTACT_ID");
 
                     b.Property<string>("MobileNo");
 
@@ -163,8 +148,7 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.Customer", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<string>("Address1");
 
@@ -193,12 +177,9 @@ namespace Hermes.Data.Migrations
 
             modelBuilder.Entity("Hermes.Domain.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("DateModified");
-
-                    b.Property<int>("IeSM_USER_ID");
 
                     b.Property<string>("UserEmail");
 

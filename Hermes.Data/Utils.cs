@@ -16,29 +16,41 @@ namespace Hermes.Data
 
         public void UpdateCallPriorityTable()
         {
-            var IeSMCallPriorities = IeSMDB.SubCategories.ToList();
-            var hermesCallPriorities = new List<Hermes.Domain.CallPriority>();
+            var IeSMRecords = IeSMDB.SubCategories.ToList();
+            var HermesRecords = new List<Hermes.Domain.CallPriority>();
 
-
-            foreach (var _callPriority in IeSMCallPriorities)
+            foreach (var _record in IeSMRecords)
             {
-                var _id = (int)_callPriority.SubCategoryId;
-                var _description = _callPriority.Description;
-                var _hermesCallPriority = new Hermes.Domain.CallPriority(_id, _description);
+                var _id = (int)_record.SubCategoryId;
+                var _description = _record.Description;
+                var _dateModified = _record.DateModified;
 
-                hermesCallPriorities.Add(_hermesCallPriority);
-
+                var _hermesCallPriority = new Hermes.Domain.CallPriority(_id, _description, _dateModified);
+                HermesRecords.Add(_hermesCallPriority);
             }
 
-            var p = hermesCallPriorities.ToList();
-
-
-            HermesDb.AddRange(hermesCallPriorities);
-
-            HermesDb.SaveChanges();
-
-            var Q = HermesDb.CallPriorities.ToList();
+            HermesDb.CallPriorities.UpdateRange(HermesRecords);
         }
+
+        public void UpdateUserTable()
+        {
+            var IeSMRecords = IeSMDB.Users.ToList();
+            var HermesRecords = new List<Hermes.Domain.User>();
+
+            foreach (var _record in IeSMRecords)
+            {
+                var _id = (int)_record.UserId;
+                var _userName = _record.UserName;
+                var _userEmail = _record.UserEmail;
+                var _dateModified = _record.DateModified;
+
+                var _hermesUser = new Hermes.Domain.User(_id, _userName, _userEmail, _dateModified);
+                HermesRecords.Add(_hermesUser);
+            }
+
+            HermesDb.Users.AddRange(HermesRecords);
+        }
+
 
         public void UpdateP1ToP0()
         {
@@ -49,23 +61,20 @@ namespace Hermes.Data
             HermesDb.CallPriorities.Update(_CallPriority);
             HermesDb.SaveChanges();
 
-            Task<bool> updateDB = Task.Run(() => HermesDbSaveChangesAsync());
-
-            updateDB.Wait();
-            bool sucess = updateDB.Result;
-            Console.WriteLine("done");
+            HermesDbSaveChanges();
 
         }
 
-        public async Task<bool> HermesDbSaveChangesAsync()
+        public int HermesDbSaveChanges()
         {
-            //var p = HermesDb.CallPriorities.ToList();
             Console.WriteLine("Saving DB");
 
             try
             {
-                var Rows = await HermesDb.SaveChangesAsync();
-                Console.WriteLine(Rows + " Updated Saving DB");
+                Task<int> updateDB = Task.Run(() => HermesDb.SaveChangesAsync());
+                updateDB.Wait();
+                Console.WriteLine(updateDB.Result.ToString() + " Updated Saving DB");
+                return updateDB.Result;
             }
             catch(DbUpdateException ex)
             {
@@ -78,10 +87,8 @@ namespace Hermes.Data
             catch (NotSupportedException ex)
             {
                 Console.WriteLine(ex.Message);
-            }  
-
-
-            return true;
+            }
+            return 0;
         }
 
     

@@ -153,21 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HermesDbContext.cs" />
-    <Compile Include="Migrations\20170615114733_init.cs" />
-    <Compile Include="Migrations\20170615114733_init.designer.cs">
-      <DependentUpon>20170615114733_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170615115422_CreateTables.cs" />
-    <Compile Include="Migrations\20170615115422_CreateTables.designer.cs">
-      <DependentUpon>20170615115422_CreateTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170615150822_UpdateTables1.cs" />
-    <Compile Include="Migrations\20170615150822_UpdateTables1.designer.cs">
-      <DependentUpon>20170615150822_UpdateTables1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170615160010_UpdateTables2.cs" />
-    <Compile Include="Migrations\20170615160010_UpdateTables2.designer.cs">
-      <DependentUpon>20170615160010_UpdateTables2.cs</DependentUpon>
+    <Compile Include="Migrations\20170616092613_Init.cs" />
+    <Compile Include="Migrations\20170616092613_Init.designer.cs">
+      <DependentUpon>20170616092613_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\HermesDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />

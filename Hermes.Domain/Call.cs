@@ -13,7 +13,7 @@ namespace Hermes.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        public int IeSM_CALL_NO { get; set; }
+        //public int IeSM_CALL_NO { get; set; }
         public User LoggedBy { get; set; }
         public User ClosedBy { get; set; }
         public User AssignedTo { get; set; }
