@@ -157,8 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CallCategories.cs" />
-    <Compile Include="Model\CallPriority.cs" />
-    <Compile Include="Model\CallStatus.cs" />
+    <Compile Include="Model\IeSMCallPriority.cs" />
+    <Compile Include="Model\IeSMCallStatus.cs" />
     <Compile Include="Model\CallTypes.cs" />
     <Compile Include="Model\CategorySubCategories.cs" />
     <Compile Include="Model\IeSMContacts.cs" />

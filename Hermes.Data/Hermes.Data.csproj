@@ -157,6 +157,18 @@
     <Compile Include="Migrations\20170616092613_Init.designer.cs">
       <DependentUpon>20170616092613_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170618123504_updateCustomerTable.cs" />
+    <Compile Include="Migrations\20170618123504_updateCustomerTable.designer.cs">
+      <DependentUpon>20170618123504_updateCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170618134846_updateCallTable.cs" />
+    <Compile Include="Migrations\20170618134846_updateCallTable.designer.cs">
+      <DependentUpon>20170618134846_updateCallTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170618142606_updateCallTable1.cs" />
+    <Compile Include="Migrations\20170618142606_updateCallTable1.designer.cs">
+      <DependentUpon>20170618142606_updateCallTable1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\HermesDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

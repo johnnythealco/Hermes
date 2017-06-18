@@ -43,8 +43,8 @@ namespace IeSM.Data.Model
         public virtual IeSMUsers ClosedByNavigation { get; set; }
         public virtual IeSMCustomer CustNoNavigation { get; set; }
         public virtual IeSMUsers LoggedByNavigation { get; set; }
-        public virtual CallPriority PriorityNoNavigation { get; set; }
-        public virtual CallStatus StatusNoNavigation { get; set; }
+        public virtual IeSMCallPriority PriorityNoNavigation { get; set; }
+        public virtual IeSMCallStatus StatusNoNavigation { get; set; }
         public virtual SubCategories SubCategory { get; set; }
         public virtual IeSMUsers UserModifiedNavigation { get; set; }
     }

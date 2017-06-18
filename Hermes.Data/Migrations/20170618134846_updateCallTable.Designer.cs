@@ -8,9 +8,10 @@ using Hermes.Data;
 namespace Hermes.Data.Migrations
 {
     [DbContext(typeof(HermesDbContext))]
-    partial class HermesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170618134846_updateCallTable")]
+    partial class updateCallTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -32,7 +33,7 @@ namespace Hermes.Data.Migrations
 
                     b.Property<int?>("ClosedById");
 
-                    b.Property<string>("Contact");
+                    b.Property<int?>("ContactId");
 
                     b.Property<int?>("CustomerId");
 
@@ -65,6 +66,8 @@ namespace Hermes.Data.Migrations
                     b.HasIndex("CallCategoryId");
 
                     b.HasIndex("ClosedById");
+
+                    b.HasIndex("ContactId");
 
                     b.HasIndex("CustomerId");
 
@@ -198,6 +201,10 @@ namespace Hermes.Data.Migrations
                     b.HasOne("Hermes.Domain.User", "ClosedBy")
                         .WithMany()
                         .HasForeignKey("ClosedById");
+
+                    b.HasOne("Hermes.Domain.Contact", "Contact")
+                        .WithMany()
+                        .HasForeignKey("ContactId");
 
                     b.HasOne("Hermes.Domain.Customer", "Customer")
                         .WithMany()

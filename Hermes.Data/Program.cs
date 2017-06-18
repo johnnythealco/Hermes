@@ -12,10 +12,21 @@ namespace Hermes.Data
         static void Main(string[] args)
         {
             var Utils = new Utils();
+            Utils.UpdateCallStatusTable();
+            Utils.UpdateCallCategoryTable();
             Utils.UpdateCallPriorityTable();
             Utils.UpdateUserTable();
+            Utils.UpdateCustomerTable();
 
             Utils.HermesDbSaveChanges();
+
+            Utils.UpdateContactTable();
+            Utils.HermesDbSaveChanges();
+
+            Utils.UpdateCallTable();
+            Utils.HermesDbSaveChanges();
+
+            Console.WriteLine("Done");
         }
 
 

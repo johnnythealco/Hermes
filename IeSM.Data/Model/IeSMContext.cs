@@ -7,8 +7,8 @@ namespace IeSM.Data.Model
     public partial class IeSMContext : DbContext
     {
         public virtual DbSet<CallCategories> CallCategories { get; set; }
-        public virtual DbSet<CallPriority> CallPriority { get; set; }
-        public virtual DbSet<CallStatus> CallStatus { get; set; }
+        public virtual DbSet<IeSMCallPriority> CallPriority { get; set; }
+        public virtual DbSet<IeSMCallStatus> CallStatus { get; set; }
         public virtual DbSet<CallTypes> CallTypes { get; set; }
         public virtual DbSet<CategorySubCategories> CategorySubCategories { get; set; }
         public virtual DbSet<IeSMContacts> Contacts { get; set; }
@@ -25,8 +25,7 @@ namespace IeSM.Data.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Server=HCSAPPS-DEV01;Initial Catalog=ieSM_Support;;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=remote.hcs.ie,1433;Integrated Security=False;User ID=iesmuser; Password=iesmpassword;Initial Catalog=ieSM_Support");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -90,7 +89,7 @@ namespace IeSM.Data.Model
                     .HasConstraintName("FK_CALL_CATEGORY_USER_MODIFIED");
             });
 
-            modelBuilder.Entity<CallPriority>(entity =>
+            modelBuilder.Entity<IeSMCallPriority>(entity =>
             {
                 entity.HasKey(e => e.PriorityNo)
                     .HasName("PK_CALL_PRIORITY");
@@ -153,7 +152,7 @@ namespace IeSM.Data.Model
                     .HasConstraintName("FK_CALL_PRIORITY_USER_MODIFIED");
             });
 
-            modelBuilder.Entity<CallStatus>(entity =>
+            modelBuilder.Entity<IeSMCallStatus>(entity =>
             {
                 entity.HasKey(e => e.StatusNo)
                     .HasName("PK_CALL_STATUS");

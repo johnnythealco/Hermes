@@ -27,6 +27,7 @@ namespace Hermes.Domain
             Id = _Id;
             UserName = _userName;
             UserEmail = _userEmail;
+            DateModified = _dateModified;
         }
 
 

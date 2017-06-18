@@ -10,10 +10,21 @@ namespace Hermes.Domain
 {
     public class CallStatus
     {
+        public CallStatus()
+        {
+
+        }
+
+        public CallStatus(int _id, string _description, DateTime _dateModified)
+        {
+            Id = _id;
+            Description = _description;
+            DateModified = _dateModified;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        //public int IeSM_CALL_STATUS_ID { get; set; }
         public string Description { get; set; }
         public DateTime DateModified { get; set; }
     }

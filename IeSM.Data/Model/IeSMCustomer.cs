@@ -39,7 +39,7 @@ namespace IeSM.Data.Model
         public virtual ICollection<LoggedCalls> LoggedCalls { get; set; }
         public virtual ICollection<IeSMUsers> Users { get; set; }
         public virtual IeSMUsers AccountManagerNavigation { get; set; }
-        public virtual CallPriority DefaultPriorityNavigation { get; set; }
+        public virtual IeSMCallPriority DefaultPriorityNavigation { get; set; }
         public virtual CustomerGroups GroupNoNavigation { get; set; }
         public virtual CustomerStatus StatusNoNavigation { get; set; }
         public virtual IeSMUsers UserCreatedNavigation { get; set; }

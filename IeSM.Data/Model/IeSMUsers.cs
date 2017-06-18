@@ -9,10 +9,10 @@ namespace IeSM.Data.Model
         {
             CallCategoriesUserCreatedNavigation = new HashSet<CallCategories>();
             CallCategoriesUserModifiedNavigation = new HashSet<CallCategories>();
-            CallPriorityUserCreatedNavigation = new HashSet<CallPriority>();
-            CallPriorityUserModifiedNavigation = new HashSet<CallPriority>();
-            CallStatusUserCreatedNavigation = new HashSet<CallStatus>();
-            CallStatusUserModifiedNavigation = new HashSet<CallStatus>();
+            CallPriorityUserCreatedNavigation = new HashSet<IeSMCallPriority>();
+            CallPriorityUserModifiedNavigation = new HashSet<IeSMCallPriority>();
+            CallStatusUserCreatedNavigation = new HashSet<IeSMCallStatus>();
+            CallStatusUserModifiedNavigation = new HashSet<IeSMCallStatus>();
             CallTypesUserCreatedNavigation = new HashSet<CallTypes>();
             CallTypesUserModifiedNavigation = new HashSet<CallTypes>();
             CategorySubCategoriesUserCreatedNavigation = new HashSet<CategorySubCategories>();
@@ -77,10 +77,10 @@ namespace IeSM.Data.Model
 
         public virtual ICollection<CallCategories> CallCategoriesUserCreatedNavigation { get; set; }
         public virtual ICollection<CallCategories> CallCategoriesUserModifiedNavigation { get; set; }
-        public virtual ICollection<CallPriority> CallPriorityUserCreatedNavigation { get; set; }
-        public virtual ICollection<CallPriority> CallPriorityUserModifiedNavigation { get; set; }
-        public virtual ICollection<CallStatus> CallStatusUserCreatedNavigation { get; set; }
-        public virtual ICollection<CallStatus> CallStatusUserModifiedNavigation { get; set; }
+        public virtual ICollection<IeSMCallPriority> CallPriorityUserCreatedNavigation { get; set; }
+        public virtual ICollection<IeSMCallPriority> CallPriorityUserModifiedNavigation { get; set; }
+        public virtual ICollection<IeSMCallStatus> CallStatusUserCreatedNavigation { get; set; }
+        public virtual ICollection<IeSMCallStatus> CallStatusUserModifiedNavigation { get; set; }
         public virtual ICollection<CallTypes> CallTypesUserCreatedNavigation { get; set; }
         public virtual ICollection<CallTypes> CallTypesUserModifiedNavigation { get; set; }
         public virtual ICollection<CategorySubCategories> CategorySubCategoriesUserCreatedNavigation { get; set; }

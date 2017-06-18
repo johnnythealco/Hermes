@@ -29,7 +29,7 @@ namespace IeSM.Data.Model
         public decimal? DefaultPriority { get; set; }
 
         public virtual ContractTypes ContractTypeNavigation { get; set; }
-        public virtual CallPriority DefaultPriorityNavigation { get; set; }
+        public virtual IeSMCallPriority DefaultPriorityNavigation { get; set; }
         public virtual IeSMUsers UserCreatedNavigation { get; set; }
         public virtual IeSMUsers UserModifiedNavigation { get; set; }
     }
